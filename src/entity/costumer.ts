@@ -1,13 +1,14 @@
+import Address from "./address"
+
 class Costumer {
 	_id: string
 	_name: string
-	_address: string
+	_address!: Address
 	_active: boolean = false
 
 	constructor(id: string, name: string, address: string) {
 		this._id = id
 		this._name = name
-		this._address = address
 		this.validate()
 	}
 
@@ -25,7 +26,7 @@ class Costumer {
 	}
 
 	activate() {
-		if (this._address.length === 0) {
+		if (this._address === undefined) {
 			throw new Error("Address is mandatory to activate a costumer")
 		}
 		this._active = true
@@ -33,5 +34,9 @@ class Costumer {
 
 	deactivate() {
 		this._active = false
+	}
+
+	set address(address: Address) {
+		this._address = address
 	}
 }
