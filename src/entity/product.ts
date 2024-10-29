@@ -14,6 +14,10 @@ export default class Product {
 		return this._name
 	}
 
+	get price(): number {
+		return this._price
+	}
+
 	validate(): boolean {
 		if (this._id.length === 0) {
 			throw new Error("Id is required")
@@ -29,5 +33,9 @@ export default class Product {
 
 	changeName(name: string) {
 		this._name = name
+	}
+
+	changePrice(price: number) {
+		this._price = price
 	}
 }
