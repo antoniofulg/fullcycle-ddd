@@ -10,6 +10,8 @@ describe("Product repository test", () => {
 			logging: false,
 			sync: { force: true },
 		})
+
+		await sequelize.sync()
 	})
 
 	afterEach(async () => {
