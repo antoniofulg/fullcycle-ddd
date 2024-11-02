@@ -1,15 +1,14 @@
 import {
-	BelongsTo,
-	Column,
-	ForeignKey,
+	Table,
 	Model,
 	PrimaryKey,
-	Table,
+	Column,
+	ForeignKey,
+	BelongsTo,
 } from "sequelize-typescript"
-import CustomerModel from "./customer.model"
-import ProductModel from "./product.model"
+
 import OrderModel from "./order.model"
-import { CONSTRAINT } from "sqlite3"
+import ProductModel from "./product.model"
 
 @Table({
 	tableName: "order_items",
@@ -42,7 +41,4 @@ export default class OrderItemModel extends Model {
 
 	@Column({ allowNull: false })
 	declare price: number
-
-	@Column({ allowNull: false })
-	declare total: number
 }

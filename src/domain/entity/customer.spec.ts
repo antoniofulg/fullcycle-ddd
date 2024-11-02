@@ -13,42 +13,42 @@ describe("Customer unit test", () => {
 	})
 
 	it("should change name", () => {
-		const costumer = new Customer("123", "John Doe")
-		costumer.changeName("Jane Doe")
-		expect(costumer.name).toBe("Jane Doe")
+		const customer = new Customer("123", "John Doe")
+		customer.changeName("Jane Doe")
+		expect(customer.name).toBe("Jane Doe")
 	})
 
-	it("should activate costumer", () => {
-		const costumer = new Customer("123", "John Doe")
+	it("should activate customer", () => {
+		const customer = new Customer("123", "John Doe")
 		const address = new Address("Main St", 123, "12345", "Anytown")
-		costumer.address = address
-		costumer.activate()
-		expect(costumer.isActive()).toBe(true)
+		customer.address = address
+		customer.activate()
+		expect(customer.isActive()).toBe(true)
 	})
 
 	it("should throw error when address is undefined when activate", () => {
 		expect(() => {
-			const costumer = new Customer("123", "John Doe")
-			costumer.activate()
-		}).toThrow(new Error("Address is mandatory to activate a costumer"))
+			const customer = new Customer("123", "John Doe")
+			customer.activate()
+		}).toThrow(new Error("Address is mandatory to activate a customer"))
 	})
 
-	it("should deactivate costumer", () => {
-		const costumer = new Customer("123", "John Doe")
+	it("should deactivate customer", () => {
+		const customer = new Customer("123", "John Doe")
 
-		costumer.deactivate()
+		customer.deactivate()
 
-		expect(costumer.isActive()).toBe(false)
+		expect(customer.isActive()).toBe(false)
 	})
 
 	it("should add reward points", () => {
-		const costumer = new Customer("123", "John Doe")
-		expect(costumer.rewardPoints).toBe(0)
+		const customer = new Customer("123", "John Doe")
+		expect(customer.rewardPoints).toBe(0)
 
-		costumer.addRewardPoints(10)
-		expect(costumer.rewardPoints).toBe(10)
+		customer.addRewardPoints(10)
+		expect(customer.rewardPoints).toBe(10)
 
-		costumer.addRewardPoints(10)
-		expect(costumer.rewardPoints).toBe(20)
+		customer.addRewardPoints(10)
+		expect(customer.rewardPoints).toBe(20)
 	})
 })

@@ -1,16 +1,16 @@
-import Costumer from "../entity/customer"
+import Customer from "../entity/customer"
 import Order from "../entity/order"
 import OrderItem from "../entity/order_item"
 import OrderService from "./order.service"
 
 describe("Order service unit test", () => {
 	it("should place an order", () => {
-		const costumer = new Costumer("1", "Costumer 1")
+		const customer = new Customer("1", "Customer 1")
 		const item1 = new OrderItem("1", "Item 1", "123", 100, 2)
 
-		const order = OrderService.placeOrder(costumer, [item1])
+		const order = OrderService.placeOrder(customer, [item1])
 
-		expect(costumer.rewardPoints).toBe(100)
+		expect(customer.rewardPoints).toBe(100)
 		expect(order.total()).toBe(200)
 	})
 
