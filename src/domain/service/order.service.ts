@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid"
 import OrderItem from "../entity/order_item"
 import Order from "../entity/order"
-import Costumer from "../entity/costumer"
+import Costumer from "../entity/customer"
 export default class OrderService {
 	static placeOrder(costumer: Costumer, items: OrderItem[]): Order {
 		if (items.length === 0) {
